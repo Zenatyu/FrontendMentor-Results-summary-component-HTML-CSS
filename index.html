@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {margin : 0; padding: 0;}
+      .attribution { font-size: 11px; text-align: center; }
+      .attribution a { color: hsl(228, 45%, 44%); }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      main {
+        display: flex;
+        width: 650px;
+        height: 480px;
+        margin: 10% auto 0 auto;
+        border-radius: 30px;
+        box-shadow: 10px 10px 20px rgb(240,240,240);
+      }
+      #main-left {
+        background: linear-gradient(rgb(102, 67, 255), rgb(47, 47, 234));
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 480px;
+        width: 325px;
+        border-radius: 30px;
+        float: left;
+      }
+      #main-right {
+        display: flex;
+        justify-content: left;
+        flex-direction: column;
+        height: 480px;
+        width: 325px;
+        border-radius: 30px;
+      }
+      #main-left-top-top {
+        font-family: "Hanken Grotesk Medium", Arial, sans-serif;
+        font-size: 20px;
+        color: #CCBCFF;
+        margin: 40% 0 40% 0;
+      }
+      #main-left-middle {
+        background: linear-gradient(#4C21C8, #4734F0);
+        height: 175px;
+        width: 175px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 10%;
+      }
+      #main-left-middle-top {
+        font-family: "Hanken Grotesk ExtraBold", Arial, sans-serif;
+        color: #FDFFF9;
+        font-size: 60px;
+      }
+      #main-left-middle-bottom {
+        font-family: "Hanken Grotesk Medium", Arial, sans-serif;
+        font-size: 15px;
+        color: #867AF7;
+      }
+      #main-left-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      #main-left-bottom-top {
+        font-family: "Hanken Grotesk Bold", Arial, sans-serif;
+        font-size: 25px;
+        color: #FDFFF9;
+        margin-bottom: 10%;
+        font-weight: bold;
+      }
+      #main-left-bottom-bottom {
+        font-family: "Hanken Grotesk", Arial, sans-serif;
+        color: #B5B3FD;
+        text-align: center;
+      }
+      #main-right-top-top {
+        font-family: "Hanken Grotesk Medium", Arial, sans-serif;
+        color: #2B2B44;
+        font-size: 20px;
+        margin: 13% 0 0 10%;
+      }
+      .main-right-middle {
+        width: 250px;
+        height: 45px;
+        margin: 5% 0 0 10%;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      #main-right-middle-1 {
+        background: #FFF6F5;
+        margin-top: 12%;
+      }
+      #main-right-middle-2 {
+        background: #FFFBF2;
+      }
+      #main-right-middle-3 {
+        background: #F2FBFA;
+      }
+      #main-right-middle-4 {
+        background: #F3F3FD;
+      }
+      .main-right-middle-div {
+        display: flex;
+      }
+      .main-right-middle-div-right {
+        display: flex;
+        margin: 5% 5% 0 0;
+      }
+      .main-right-middle-p {
+        font-family: "Hanken Grotesk", Arial, sans-serif;
+        font-weight: bold;
+      }
+      .main-right-middle-p-right-left {
+        font-family: "Hanken Grotesk ExtraBold", Arial, sans-serif;
+        color: #3B4056;
+      }
+      .main-right-middle-p-right-right {
+        font-family: "Hanken Grotesk ExtraBold", Arial, sans-serif;
+        color: #97919B;
+      }
+      #main-right-middle-1-left-1 {
+        margin: 0 0 0 10%;
+      }
+      #main-right-middle-2-left-1 {
+        margin: 0 0 0 14%;
+      }
+      #main-right-middle-3-left-1 {
+        margin: 0 0 0 20%;
+      }
+      #main-right-middle-4-left-1 {
+        margin: 0 0 0 20%;
+      }
+      #main-right-middle-1-left-2 {
+        margin: 14% 0 0 10%;
+        color: #D96565;
+      }
+      #main-right-middle-2-left-2 {
+        margin: 15% 0 0 10%;
+        color: #FFC14D;
+      }
+      #main-right-middle-3-left-2 {
+        margin: 18% 0 0 10%;
+        color: #2CB28F;
+      }
+      #main-right-middle-4-left-2 {
+        margin: 18% 0 0 10%;
+        color: #26318D;
+      }
+      #main-right-bottom {
+        margin: 12% 0 0 10%;
+      }
+      #main-right-bottom-button {
+        width: 250px;
+        height: 50px;
+        background: linear-gradient(rgb(102, 67, 255), rgb(47, 47, 234));
+        color: white;
+        font-family: "Hanken Grotesk Medium", Arial, sans-serif;
+        font-size: 17px;
+        border: 0;
+        border-radius: 35px;
+      }
+      @media only screen and (max-width: 650px){
+        * {text-align: center;}
+        html {background: white}
+        main {
+          margin: 0 0 0 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 0;
+        }
+        #main-left {
+          width: 100%;
+          height: 350px;
+          border-radius: 0 0 30px 30px;
+        }
+        #main-left-top-top {
+          font-family: "Hanken Grotesk Medium", Arial, sans-serif;
+          font-size: 20px;
+          color: #CCBCFF;
+          margin: 20% 0 30% 0;
+        }
+        #main-left-middle {
+          margin-bottom: 5%;
+          width: 150px;
+          height: 150px;
+        }
+        #main-left-bottom-top {
+          margin-bottom: 4%;
+        }
+        #main-right {
+          clear: left;
+          width: 100%;
+          height: auto;
+        }
+        #main-right-top-top {
+          margin: 7% 0 0 9%;
+          text-align: left;
+        }
+        #main-right-middle-1 {
+          margin-top: 7%;
+        }
+        .main-right-middle {
+          margin: 5% auto 0 auto;
+          width: 85%;
+          height: 55px;
+          border-radius: 10px;
+        }
+        #main-right-bottom {
+          margin: 6% auto 0 auto;
+          width: 85%;
+        }
+        #main-right-bottom-button {
+          width: 100%;
+          height: 55px;
+          background: #303B59;
+          border-radius: 35px;
+        }
+        #main-right-middle-1-left-2 {
+          margin: 19% 0 0 11%;
+          color: #D96565;
+        }
+        #main-right-middle-2-left-2 {
+          margin: 21% 0 0 12%;
+          color: #FFC14D;
+        }
+        #main-right-middle-3-left-2 {
+          margin: 25% 0 0 14%;
+          color: #2CB28F;
+        }
+        #main-right-middle-4-left-2 {
+          margin: 25% 0 0 14%;
+          color: #26318D;
+        }
+        #main-right-middle-1-left-1 {
+          margin: 0 0 0 17%;
+        }
+        #main-right-middle-2-left-1 {
+          margin: 0 0 0 20%;
+        }
+        #main-right-middle-3-left-1 {
+          margin: 0 0 0 25%;
+        }
+        #main-right-middle-4-left-1 {
+          margin: 0 0 0 25%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="main-left">
+        <div id="main-left-top">
+          <p id="main-left-top-top">Your Result</p>
+        </div>
+
+        <div id="main-left-middle">
+          <p id="main-left-middle-top">76</p>
+          <p id="main-left-middle-bottom">of 100</p>
+        </div>
+
+        <div id="main-left-bottom">
+          <p id="main-left-bottom-top">Great</p>
+          <p id="main-left-bottom-bottom">You scored higher than 65% of the<br> people who have taken these tests.</p>
+        </div>
+      </div>
+
+      <div id="main-right">
+        <div id="main-right-top">
+          <p id="main-right-top-top">Summary</p>
+        </div>
+
+        <div id="main-right-middle-1" class="main-right-middle">
+            <div id="main-right-middle-1-left" class="main-right-middle-div">
+              <img id="main-right-middle-1-left-1" class="main-right-middle-img" src="assets/images/icon-reaction.svg" alt="reaction-icon">
+              <p id="main-right-middle-1-left-2" class="main-right-middle-p">Reaction</p>
+            </div>
+            <div id="main-right-middle-1-right" class="main-right-middle-div-right">
+              <p id="main-right-middle-1-right-left" class="main-right-middle-p-right-left">80&nbsp</p>
+              <p id="main-right-middle-1-right-right" class="main-right-middle-p-right-right">&nbsp/ 100</p>
+            </div>
+        </div>
+
+        <div id="main-right-middle-2" class="main-right-middle">
+          <div id="main-right-middle-2-left" class="main-right-middle-div">
+            <img id="main-right-middle-2-left-1" class="main-right-middle-img" src="assets/images/icon-memory.svg" alt="memory-icon">
+            <p id="main-right-middle-2-left-2" class="main-right-middle-p">Memory</p>
+          </div>
+          <div id="main-right-middle-2-right" class="main-right-middle-div-right">
+            <p id="main-right-middle-2-right-left" class="main-right-middle-p-right-left">92&nbsp</p>
+            <p id="main-right-middle-2-right-right" class="main-right-middle-p-right-right">&nbsp/ 100</p>
+          </div>
+        </div>
+
+        <div id="main-right-middle-3" class="main-right-middle">
+          <div id="main-right-middle-3-left" class="main-right-middle-div">
+            <img id="main-right-middle-3-left-1" class="main-right-middle-img" src="assets/images/icon-verbal.svg" alt="verbal-icon">
+            <p id="main-right-middle-3-left-2" class="main-right-middle-p">Verbal</p>
+          </div>
+          <div id="main-right-middle-3-right" class="main-right-middle-div-right">
+            <p id="main-right-middle-3-right-left" class="main-right-middle-p-right-left">61&nbsp</p>
+            <p id="main-right-middle-3-right-right" class="main-right-middle-p-right-right">&nbsp/ 100</p>
+          </div>
+        </div>
+
+        <div id="main-right-middle-4" class="main-right-middle">
+          <div id="main-right-middle-4-left" class="main-right-middle-div">
+            <img id="main-right-middle-4-left-1" class="main-right-middle-img" src="assets/images/icon-visual.svg" alt="visual-icon">
+            <p id="main-right-middle-4-left-2" class="main-right-middle-p">Visual</p>
+          </div>
+          <div id="main-right-middle-4-right" class="main-right-middle-div-right">
+            <p id="main-right-middle-4-right-left" class="main-right-middle-p-right-left">72&nbsp</p>
+            <p id="main-right-middle-4-right-right" class="main-right-middle-p-right-right">&nbsp/ 100</p>
+          </div>
+        </div>
+
+        <div id="main-right-bottom">
+          <button id="main-right-bottom-button"><a href="https://www.youtube.com/watch?v=9bZkp7q19f0">Continue</a></button>
+        </div>
+      </div>
+      <script>
+        window.onload = function(){
+
+          $.get("data.json", function(data){
+            console.log(data);
+          });
+        }
+
+      </script>
+    </main>
+  </body>
+</html>
